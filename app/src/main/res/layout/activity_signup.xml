@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -9,37 +8,30 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="24dp"
-    tools:context=".MainActivity">
+    android:background="@android:color/white"
+    tools:context=".Signup">
 
-    <LinearLayout
+
+    <!-- Title -->
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="30dp">
+        android:text="Create an account"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_marginBottom="4dp"/>
 
+    <!-- Subtitle -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Connect with your friends today!"
+        android:textSize="14sp"
+        android:textColor="#808080"
+        android:layout_marginBottom="24dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hi, Welcome Back! 👋"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:paddingBottom="8dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello again, you've been missed!"
-            android:textSize="14sp"
-            android:gravity="center"
-            android:paddingBottom="20dp"/>
-    </LinearLayout>
-
-
-
-    <!-- Phone Number Input -->
+    <!-- Phone Number Label -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -47,8 +39,9 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@color/black"
-        android:paddingBottom="4dp"/>
+        android:layout_marginBottom="6dp"/>
 
+    <!-- Phone Number Input -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -74,31 +67,47 @@
             android:textSize="16sp"/>
     </LinearLayout>
 
-
-
-    <!-- Login Button -->
+    <!-- Sign Up Button -->
     <Button
+        android:id="@+id/btnSignUp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login"
+        android:layout_height="50dp"
+        android:text="Sign Up"
         android:backgroundTint="#6A0DAD"
-        android:textColor="#FFFFFF"
-        android:padding="12dp"
+        android:textColor="@android:color/white"
         android:textSize="16sp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginTop="24dp"/>
 
     <!-- Divider -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Or With"
-        android:textSize="14sp"
+        android:orientation="horizontal"
         android:gravity="center"
-        android:paddingBottom="12dp"/>
+        android:layout_marginTop="16dp">
 
-    <!-- Google Login Button -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="#C4C4C4"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Or With "
+            android:textSize="12sp"
+            android:textColor="#808080"
+            android:layout_marginHorizontal="8dp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="#C4C4C4"/>
+    </LinearLayout>
+
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -109,18 +118,18 @@
         android:textSize="16sp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"/>
 
-    <!-- Sign Up Option -->
+    <!-- Already have an account? Login -->
     <TextView
-        android:id="@+id/signuptext"
+        android:id="@+id/loginText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Don't have an account? Sign Up"
+        android:text="Already have an account?  Login"
         android:textSize="14sp"
         android:textColor="#6A0DAD"
-        android:gravity="center"
-        android:paddingTop="20dp"
-        android:layout_gravity="center"/>
+        android:layout_marginTop="16dp"
+        android:gravity="center"/>
 
 </LinearLayout>
