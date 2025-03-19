@@ -60,6 +60,7 @@
             android:paddingEnd="10dp"/>
 
         <EditText
+            android:id="@+id/phoneNumberInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter your phone number"
@@ -108,18 +109,12 @@
     </LinearLayout>
 
 
-    <Button
-        android:layout_width="match_parent"
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/btnGoogleSignIn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login with Google"
-        android:backgroundTint="@color/black"
-        android:textColor="@color/white"
-        android:padding="12dp"
-        android:textSize="16sp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginTop="16dp"/>
+
 
     <!-- Already have an account? Login -->
     <TextView

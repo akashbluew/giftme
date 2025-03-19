@@ -12,7 +12,20 @@
           "package_name": "com.bidileaf.Giftme"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "105334471191-5raqv9dgabtm8bge8te2ni5ksoajfmln.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bidileaf.Giftme",
+            "certificate_hash": "c9d48efb5e89d2abbeb36f2f29f1b59d6b3feab4"
+          }
+        },
+        {
+          "client_id": "105334471191-7iuhtaigc0ar5im7jth7ue99sinhcidn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAxSL6IfCJjBSGIV_VIQZRQrR3uDrbUNVo"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "105334471191-7iuhtaigc0ar5im7jth7ue99sinhcidn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

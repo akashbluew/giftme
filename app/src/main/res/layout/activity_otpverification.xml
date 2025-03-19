@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="@android:color/white"
+    tools:context=".Otpverification">
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Verify your phone"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_marginBottom="4dp"/>
+
+    <!-- Subtitle -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter the OTP sent to your number"
+        android:textSize="14sp"
+        android:textColor="#808080"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- OTP Input Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter OTP"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginBottom="6dp"/>
+
+    <!-- OTP Input Field -->
+    <EditText
+        android:id="@+id/otpInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter OTP"
+        android:inputType="number"
+        android:textSize="16sp"
+        android:maxLength="6"
+        android:gravity="center"
+        android:background="@android:drawable/editbox_background"
+        android:padding="8dp"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- Verify OTP Button -->
+    <Button
+        android:id="@+id/btnVerifyOTP"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Verify OTP"
+        android:backgroundTint="#6A0DAD"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:layout_marginTop="24dp"/>
+
+    <!-- Resend OTP -->
+    <TextView
+        android:id="@+id/resendOtpText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Didn't receive OTP? Resend"
+        android:textSize="14sp"
+        android:textColor="#6A0DAD"
+        android:layout_marginTop="16dp"
+        android:gravity="center"/>
+
+</LinearLayout>
