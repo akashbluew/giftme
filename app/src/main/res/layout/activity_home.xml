@@ -1,10 +1,274 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".HomeActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomNav"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/walletImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:src="@drawable/blankwallet"
+                    android:scaleType="fitCenter" />
+
+                <ImageView
+                    android:id="@+id/charm1"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:translationY="-72dp"
+                    android:translationX="10dp"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:src="@drawable/kingkey"
+                    />
+
+
+
+                <TextView
+                    android:id="@+id/nametext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your Name"
+                    android:translationY="-46dp"
+                    android:translationX="10dp"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:layout_gravity="bottom|center_horizontal"/>
+
+            </FrameLayout>
+
+
+
+
+            <!-- Name Input on Wallet -->
+            <EditText
+                android:id="@+id/nameInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Type your name"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:background="@drawable/edittext_border"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:padding="5dp"
+                android:inputType="textCapCharacters"
+                android:capitalize="characters"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="select charm"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/charm"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/kingkey"
+                    android:padding="4dp"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <ImageView
+                    android:id="@+id/charm2"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/symbol2"
+                    android:padding="4dp"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <ImageView
+                    android:id="@+id/charm3"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/kingcharm"
+                    android:padding="4dp"
+                    android:clickable="true"
+                    android:focusable="true" />
+            </LinearLayout>
+
+            <!-- Keychain Image -->
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/keychainImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:src="@drawable/blackkeychain"
+                    android:scaleType="fitCenter" />
+
+                <ImageView
+                    android:id="@+id/keychaincharm"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    android:translationY="-35dp"
+                    android:translationX="-10dp"
+                    android:layout_gravity="end|bottom"
+                    android:src="@drawable/kingkey"
+                    />
+
+
+
+                <TextView
+                    android:id="@+id/keychainnametext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:translationY="-67dp"
+                    android:translationX="15dp"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:layout_gravity="bottom|center_horizontal"/>
+
+            </FrameLayout>
+
+
+
+
+            <!-- Name Input on Wallet -->
+            <EditText
+                android:id="@+id/keychainnameInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Type your name"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:background="@drawable/edittext_border"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:padding="5dp"
+                android:inputType="textCapCharacters"
+                android:capitalize="characters"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="select charm"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/keychaincharm1"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/kingkey"
+                    android:padding="4dp"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <ImageView
+                    android:id="@+id/keychaincharm2"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/symbol2"
+                    android:padding="4dp"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <ImageView
+                    android:id="@+id/keychaincharm3"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/kingcharm"
+                    android:padding="4dp"
+                    android:clickable="true"
+                    android:focusable="true" />
+            </LinearLayout>
+
+
+            <RadioGroup
+                android:id="@+id/radioGroupOptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- Option 1: Wallet Only -->
+                <RadioButton
+                    android:id="@+id/radio_wallet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Only Wallet (Price 299 Rs)"/>
+
+                <!-- Option 2: Wallet + Keychain -->
+                <RadioButton
+                    android:id="@+id/radio_wallet_keychain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wallet and Keychain (Price 399 Rs)"/>
+            </RadioGroup>
+
+
+            <Button
+                android:id="@+id/btnPlaceOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Place Order on WhatsApp"
+                android:background="@android:color/holo_green_light"
+                android:textColor="@android:color/white"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation Bar -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        app:menu="@menu/bottom_navigation_menu" />
+
+
+</RelativeLayout>
