@@ -28,6 +28,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.concurrent.TimeUnit;
 
@@ -125,24 +127,39 @@ public class Signup extends AppCompatActivity {
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
 
-        // Get the ID Token from the signed-in account
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
 
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
                         FirebaseUser user = mAuth.getCurrentUser();
-                        Log.d("FirebaseAuth", "Firebase Auth Success: " + user.getEmail());
+                        if (user != null) {
+                            String uid = user.getUid();
+                            String email = user.getEmail();
 
-                        Intent intent = new Intent(Signup.this, HomeActivity.class);
-                        startActivity(intent);
-                        finish();
+                            // Save to Firebase Database
+                            UserModel userModel = new UserModel(uid, email, null); // Phone is null for Google sign-in
+                            databaseReference.child(uid).setValue(userModel)
+                                    .addOnCompleteListener(dbTask -> {
+                                        if (dbTask.isSuccessful()) {
+                                            Log.d("FirebaseAuth", "User saved to database");
+                                        } else {
+                                            Log.e("FirebaseAuth", "Database error", dbTask.getException());
+                                        }
+                                    });
+
+                            Intent intent = new Intent(Signup.this, HomeActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
                     } else {
                         Log.e("FirebaseAuth", "Firebase Auth Failed", task.getException());
                     }
                 });
     }
+
 
 
     private void sendVerificationCode(String phoneNumber) {
@@ -155,8 +172,40 @@ public class Signup extends AppCompatActivity {
                 new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                     @Override
                     public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-                        // Auto-verification (for some devices)
+                        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+
+                        mAuth.signInWithCredential(phoneAuthCredential)
+                                .addOnCompleteListener(task -> {
+                                    if (task.isSuccessful()) {
+                                        FirebaseUser user = mAuth.getCurrentUser();
+                                        if (user != null) {
+                                            String uid = user.getUid();
+                                            String phone = user.getPhoneNumber();
+
+                                            // Save to Firebase Database
+                                            UserModel userModel = new UserModel(uid, null, phone); // Email is null for phone sign-in
+                                            databaseReference.child(uid).setValue(userModel)
+                                                    .addOnCompleteListener(dbTask -> {
+                                                        if (dbTask.isSuccessful()) {
+                                                            Log.d("FirebaseAuth", "Phone user saved to database");
+                                                        } else {
+                                                            Log.e("FirebaseAuth", "Database error", dbTask.getException());
+                                                        }
+                                                    });
+
+                                            Intent intent = new Intent(Signup.this, HomeActivity.class);
+                                            startActivity(intent);
+                                            finish();
+                                        }
+                                    } else {
+                                        Toast.makeText(Signup.this, "Authentication Failed!", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+
+
                     }
+
 
                     @Override
                     public void onVerificationFailed(@NonNull FirebaseException e) {

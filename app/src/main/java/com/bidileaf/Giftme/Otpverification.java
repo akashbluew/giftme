@@ -18,8 +18,11 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.concurrent.TimeUnit;
 
@@ -135,12 +138,32 @@ public class Otpverification extends AppCompatActivity {
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        Toast.makeText(Otpverification.this, "Verification Successful!", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(Otpverification.this, HomeActivity.class));
-                        finish();
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        if (user != null) {
+                            String uid = user.getUid();
+                            String phone = user.getPhoneNumber();
+
+                            // Save to Firebase Database
+                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+                            UserModel userModel = new UserModel(uid, null, phone); // Email is null for phone sign-in
+                            databaseReference.child(uid).setValue(userModel)
+                                    .addOnCompleteListener(dbTask -> {
+                                        if (dbTask.isSuccessful()) {
+                                            Toast.makeText(Otpverification.this, "User saved to database", Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            Toast.makeText(Otpverification.this, "Database error: " + dbTask.getException().getMessage(), Toast.LENGTH_LONG).show();
+                                        }
+                                    });
+
+                            // Proceed to HomeActivity
+                            Toast.makeText(Otpverification.this, "Verification Successful!", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(Otpverification.this, HomeActivity.class));
+                            finish();
+                        }
                     } else {
                         Toast.makeText(Otpverification.this, "Verification Failed!", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
+
 }
