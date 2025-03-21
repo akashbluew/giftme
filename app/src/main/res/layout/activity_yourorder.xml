@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".Yourorder">
+
+
+    <!-- Title Section -->
+    <LinearLayout
+        android:id="@+id/titleSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@drawable/title_background"
+        android:layout_margin="20dp">
+
+        <ImageView
+            android:id="@+id/titleIcon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_order"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Order"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+
+    <!-- Order Details Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/orderCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="6dp"
+        android:layout_below="@id/titleSection"
+        android:padding="16dp"
+        android:layout_marginBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <!-- Order Details -->
+            <TextView
+                android:id="@+id/orderDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No Order"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:padding="8dp"/>
+
+            <!-- Order Date -->
+            <TextView
+                android:id="@+id/orderDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Order Placed: dd/mm/yyyy"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            android:textColor="@android:color/darker_gray"
+            android:padding="8dp"/>
+
+
+            <Button
+                android:id="@+id/modifyOrderBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Modify Order"
+                android:textSize="16sp"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@android:color/white"
+                android:layout_below="@id/orderCard"
+                android:backgroundTint="@color/design_default_color_primary_variant"
+                android:layout_centerHorizontal="true"
+                android:padding="12dp"
+                android:elevation="4dp"/>
+        </LinearLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Modify Order Button -->
+
+
+
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        app:menu="@menu/bottom_navigation_menu" />
+
+
+</RelativeLayout>
