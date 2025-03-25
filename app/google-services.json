@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "105334471191-pmg3j6u3q3a8bdfiij7q16b6q8vfqevb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bidileaf.Giftme",
+            "certificate_hash": "e18f4b539ab7f1c6e4b4f2c267473ec7deb3e164"
+          }
+        },
+        {
           "client_id": "105334471191-7iuhtaigc0ar5im7jth7ue99sinhcidn.apps.googleusercontent.com",
           "client_type": 3
         }

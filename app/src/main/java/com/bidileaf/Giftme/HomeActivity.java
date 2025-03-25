@@ -1,5 +1,7 @@
 package com.bidileaf.Giftme;
 
+import static android.content.ContentValues.TAG;
+
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -42,18 +44,22 @@ public class HomeActivity extends AppCompatActivity {
     private ImageView walletCharm;
     private TextView nameOnWallet,address;
     private EditText nameInput;
-    private ImageView charm1, charm2, charm3;
+    private ImageView charm1, charm2, charm3,charm4;
 
-    private ImageView keychainCharm, keychainCharm1, keychainCharm2, keychainCharm3;
+    private ImageView keychainCharm, keychainCharm1, keychainCharm2, keychainCharm3,keychainCharm4;
     private EditText keychainNameInput;
     private TextView keychainNameText;
 
     private RadioGroup radioGroupOptions,paymentOptionsGroup;
     private Button btnPlaceOrder;
-    private String selectedOption = "Only Wallet (Price 299 Rs)";
+    private String selectedOption = "";
     private String selectedPaymentMethod = "Cash on Delivery (COD)";
 
     CardView add_adress;
+
+    private String selectedWalletCharm = "";
+    private String selectedKeychainCharm = "";
+
 
 
     @Override
@@ -106,12 +112,14 @@ public class HomeActivity extends AppCompatActivity {
         charm1 = findViewById(R.id.charm); // First charm option
         charm2 = findViewById(R.id.charm2); // Second charm option
         charm3 = findViewById(R.id.charm3); // Third charm option
+        charm4 = findViewById(R.id.charm4); // Fourth charm option
 
         // Initialize Keychain Views
         keychainCharm = findViewById(R.id.keychaincharm);
         keychainCharm1 = findViewById(R.id.keychaincharm1);
         keychainCharm2 = findViewById(R.id.keychaincharm2);
         keychainCharm3 = findViewById(R.id.keychaincharm3);
+        keychainCharm4 = findViewById(R.id.keychaincharm4);
         keychainNameInput = findViewById(R.id.keychainnameInput);
         keychainNameText = findViewById(R.id.keychainnametext);
         radioGroupOptions = findViewById(R.id.radioGroupOptions);
@@ -120,27 +128,53 @@ public class HomeActivity extends AppCompatActivity {
         address =   findViewById(R.id.address);
         btnPlaceOrder = findViewById(R.id.btnPlaceOrder);
 
+        /*int selectedId = radioGroupOptions.getCheckedRadioButtonId();
+
+
+        // Determine selected option
+        if (selectedId == R.id.radio_wallet) {
+            selectedOption = "Only Wallet";
+            Log.e(TAG, "wallet selected id."  + selectedId);
+
+        } else if (selectedId == R.id.radio_wallet_keychain) {
+            selectedOption = "Wallet and Keychain";
+            Log.e(TAG, "wallet selected. id "  + selectedId);
+
+        }*/
+
 
 
         // Change wallet charm when user clicks a charm
         charm1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                walletCharm.setImageResource(R.drawable.kingkey);
+                walletCharm.setImageResource(R.drawable.kingcharm);
+                selectedWalletCharm = "Charm 1 - King Charm";
             }
         });
 
         charm2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                walletCharm.setImageResource(R.drawable.symbol2);
+                walletCharm.setImageResource(R.drawable.mrcharm);
+                selectedWalletCharm = "Charm 2 - Mr. Charm";
             }
         });
 
         charm3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                walletCharm.setImageResource(R.drawable.kingcharm);
+                walletCharm.setImageResource(R.drawable.infinitylovecharm);
+                selectedWalletCharm = "Charm 3 - Infinity Love";
+            }
+        });
+
+        charm4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                walletCharm.setImageResource(R.drawable.bike);
+                selectedWalletCharm = "Charm 4 - Bike";
             }
         });
 
@@ -149,7 +183,8 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                updateKeychainCharm(R.drawable.kingkey);
+                updateKeychainCharm(R.drawable.kingcharm);
+                selectedKeychainCharm = "Charm 1 - King Charm";
             }
         });
 
@@ -157,7 +192,8 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                updateKeychainCharm(R.drawable.symbol2);
+                updateKeychainCharm(R.drawable.mrcharm);
+                selectedKeychainCharm = "Charm 2 - Mr. Charm";
             }
         });
 
@@ -165,7 +201,17 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                updateKeychainCharm(R.drawable.kingcharm);
+                updateKeychainCharm(R.drawable.keychainlovecharm);
+                selectedKeychainCharm = "Charm 3 - Infinity Love";
+            }
+        });
+
+        keychainCharm4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                updateKeychainCharm(R.drawable.bike);
+                selectedKeychainCharm = "Charm 4 - Bike";
             }
         });
 
@@ -203,6 +249,8 @@ public class HomeActivity extends AppCompatActivity {
         radioGroupOptions.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton selectedButton = findViewById(checkedId);
             selectedOption = selectedButton.getText().toString();
+
+            Log.e(TAG, selectedOption);
         });
 
         // Payment Option Selection
@@ -263,7 +311,28 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                placeOrderOnWhatsApp();
+                String name = nameInput.getText().toString().trim();
+                String keychainName = keychainNameInput.getText().toString().trim();
+                String userAddress = address.getText().toString().trim(); // Get address text
+
+                // Check if address is empty
+                if (userAddress.isEmpty()) {
+                    Toast.makeText(HomeActivity.this, "Add address to place order", Toast.LENGTH_SHORT).show();
+                    return; // Stop further execution
+                }
+
+
+                // Place order based on selection
+                if (selectedOption.equals("Only Wallet (Price 299 Rs)")) {
+                    Log.e(TAG, "wallet selected.");
+                    placeWalletOrder(name, userAddress);
+                } else if (selectedOption.equals("Wallet and Keychain (Price 399 Rs)")) {
+                    Log.e(TAG, "wallet keychain selected");
+                    placeWalletAndKeychainOrder(name, keychainName, userAddress);
+                }
+
+
+               /* placeOrderOnWhatsApp();*/
 
 
             }
@@ -272,24 +341,68 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
+    private void placeWalletAndKeychainOrder(String name, String keychainName, String userAddress) {
+        if (name.isEmpty()) name = "Not provided";
+        if (keychainName.isEmpty()) keychainName = "No keychain needed";
+        if (userAddress.isEmpty()) userAddress = "Not provided";
+
+        String message = "Order Details:\n" +
+                "Wallet Name: " + name + "\n" +
+                "Selected Wallet Charm: " + selectedWalletCharm + "\n" +
+                "Keychain Name: " + keychainName + "\n" +
+                "Selected Keychain Charm: " + selectedKeychainCharm + "\n" +
+                "Order Type: Wallet + Keychain\n" +
+                "Payment Method: " + selectedPaymentMethod + "\n" +
+                "Address: " + userAddress;
+        Log.e(TAG, "placewllaet and keychain works.");
+        // Save order details before sending
+        saveOrderDetails(name, keychainName, selectedOption, selectedPaymentMethod, userAddress);
+
+        sendOrderToWhatsApp(message);
+    }
+
+
+
+    private void placeWalletOrder(String name, String userAddress) {
+        if (name.isEmpty()) name = "Not provided";
+        if (userAddress.isEmpty()) userAddress = "Not provided";
+
+        String message = "Order Details:\n" +
+                "Wallet Name: " + name + "\n" +
+                "Selected Wallet Charm: " + selectedWalletCharm + "\n" +
+                "Order Type: Wallet\n" +
+                "Payment Method: " + selectedPaymentMethod + "\n" +
+                "Address: " + userAddress;
+
+        Log.e(TAG, "placewllaet works.");
+
+        saveOrderDetails(name, "No keychain needed", selectedOption, selectedPaymentMethod, userAddress);
+        sendOrderToWhatsApp(message);
+    }
+
+    private void sendOrderToWhatsApp(String message) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("https://wa.me/8692008067?text=" + Uri.encode(message)));
+        startActivity(intent);
+    }
     private void updateKeychainCharm(int charmDrawable) {
         keychainCharm.setImageResource(charmDrawable);
     }
 
-    private void placeOrderOnWhatsApp() {
+ /*   private void placeOrderOnWhatsApp() {
         String name = nameInput.getText().toString().trim();
         String keychainName = keychainNameInput.getText().toString().trim();
         String userAddress = address.getText().toString().trim(); // Get address text
 
         if (name.isEmpty()) name = "Not provided";
-        if (keychainName.isEmpty()) keychainName = "Not provided";
+        if (keychainName.isEmpty()) keychainName = "No provided";
         if (userAddress.isEmpty()) userAddress = "Not provided";
 
         String message = "Order Details:\n" +
                 "Wallet Name: " + name + "\n" +
-               /* "Selected Charm: " + selectedCharmName + "\n" +*/
+                "Selected Wallet Charm: " + selectedWalletCharm + "\n" +
                 "Keychain Name: " + keychainName + "\n" +
-              /*  "Selected Keychain Charm: " + selectedKeychainCharmName + "\n" +*/
+               "Selected Keychain Charm: " + selectedKeychainCharm + "\n" +
                 "Order Type: " + selectedOption + "\n"  +
 
         "Payment Method: " + selectedPaymentMethod+ "\n" +
@@ -302,7 +415,7 @@ public class HomeActivity extends AppCompatActivity {
         intent.setData(Uri.parse("https://wa.me/8692008067?text=" + Uri.encode(message)));
         startActivity(intent);
 
-    }
+    }*/
 
 
     public void saveOrderDetails(String name, String keychainName, String selectedOption, String selectedPaymentMethod, String userAddress) {

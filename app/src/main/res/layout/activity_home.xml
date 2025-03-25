@@ -35,10 +35,10 @@
                     android:id="@+id/charm1"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:translationY="-72dp"
+                    android:translationY="-50dp"
                     android:translationX="10dp"
                     android:layout_gravity="bottom|center_horizontal"
-                    android:src="@drawable/kingkey"
+                    android:src="@drawable/kingcharm"
                     />
 
 
@@ -94,32 +94,110 @@
                 android:orientation="horizontal"
                 android:gravity="center">
 
-                <ImageView
-                    android:id="@+id/charm"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:src="@drawable/kingkey"
-                    android:padding="4dp"
-                    android:clickable="true"
-                    android:focusable="true" />
 
-                <ImageView
-                    android:id="@+id/charm2"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:src="@drawable/symbol2"
-                    android:padding="4dp"
-                    android:clickable="true"
-                    android:focusable="true" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/charm3"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:src="@drawable/kingcharm"
-                    android:padding="4dp"
-                    android:clickable="true"
-                    android:focusable="true" />
+                    <ImageView
+                        android:id="@+id/charm"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/kingcharm"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No 1"
+                        android:textSize="12sp"
+                        android:textColor="@color/black"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+                    <ImageView
+                        android:id="@+id/charm2"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/mrcharm"
+                        android:layout_gravity="center"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No 2"
+                        android:textSize="12sp"
+                        android:textColor="@color/black"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+                    <ImageView
+                        android:id="@+id/charm3"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/infinitylovecharm"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No 3"
+                        android:textSize="12sp"
+                        android:textColor="@color/black"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/charm4"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/bike"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No 4"
+                        android:textSize="12sp"
+                        android:textColor="@color/black"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+
+
             </LinearLayout>
 
             <!-- Keychain Image -->
@@ -137,12 +215,12 @@
 
                 <ImageView
                     android:id="@+id/keychaincharm"
-                    android:layout_width="85dp"
-                    android:layout_height="85dp"
-                    android:translationY="-35dp"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:translationY="-20dp"
                     android:translationX="-10dp"
                     android:layout_gravity="end|bottom"
-                    android:src="@drawable/kingkey"
+                    android:src="@drawable/bike"
                     />
 
 
@@ -198,32 +276,115 @@
                 android:orientation="horizontal"
                 android:gravity="center">
 
-                <ImageView
-                    android:id="@+id/keychaincharm1"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:src="@drawable/kingkey"
-                    android:padding="4dp"
-                    android:clickable="true"
-                    android:focusable="true" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/keychaincharm2"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:src="@drawable/symbol2"
-                    android:padding="4dp"
-                    android:clickable="true"
-                    android:focusable="true" />
 
-                <ImageView
-                    android:id="@+id/keychaincharm3"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:src="@drawable/kingcharm"
-                    android:padding="4dp"
-                    android:clickable="true"
-                    android:focusable="true" />
+                    <ImageView
+                        android:id="@+id/keychaincharm1"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/kingcharm"
+                        android:padding="4dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No 1"
+                        android:textSize="12sp"
+                        android:textColor="@color/black"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/keychaincharm2"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/mrcharm"
+                        android:padding="4dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No 2"
+                        android:textSize="12sp"
+                        android:textColor="@color/black"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/keychaincharm3"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/keychainlovecharm"
+                        android:padding="4dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No 3"
+                        android:textSize="12sp"
+                        android:textColor="@color/black"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/keychaincharm4"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/bike"
+                        android:padding="4dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No 4"
+                        android:textSize="12sp"
+                        android:textColor="@color/black"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+
+
+
             </LinearLayout>
 
 
@@ -333,7 +494,7 @@
                 android:padding="5dp"
                 android:layout_margin="10dp"
                 android:text="Place Order on WhatsApp"
-                android:background="@android:color/holo_green_light"
+                android:background="@color/design_default_color_primary"
                 android:textColor="@android:color/white"/>
 
 

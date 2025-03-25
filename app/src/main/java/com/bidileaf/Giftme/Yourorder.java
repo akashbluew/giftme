@@ -1,8 +1,10 @@
 package com.bidileaf.Giftme;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -25,6 +27,7 @@ public class Yourorder extends AppCompatActivity {
     private TextView orderDetails, orderDate;
     private DatabaseReference databaseReference;
     private FirebaseAuth auth;
+    Button modifyOrderBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +46,12 @@ public class Yourorder extends AppCompatActivity {
 
         // Initialize Firebase
         auth = FirebaseAuth.getInstance();
-        databaseReference = FirebaseDatabase.getInstance().getReference("orders");
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
 
         // Initialize UI Components
         orderDetails = findViewById(R.id.orderDetails);
-        orderDate = findViewById(R.id.orderDate);
+        modifyOrderBtn = findViewById(R.id.modifyOrderBtn);
+       /* orderDate = findViewById(R.id.orderDate);*/
 
         // Get Order Details
         getOrderDetails();
@@ -73,6 +77,21 @@ public class Yourorder extends AppCompatActivity {
                 return false;
             }
         });
+
+        modifyOrderBtn.setOnClickListener(v -> {
+
+            try {
+                String url = "https://api.whatsapp.com/send?phone=8692008067";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        });
+
+
     }
 
     private void getOrderDetails() {
@@ -95,7 +114,7 @@ public class Yourorder extends AppCompatActivity {
                                 "Keychain Name: " + keychainName + "\n" +
                                 "Order Type: " + orderType + "\n" +
                                 "Payment Method: " + paymentMethod + "\n" +
-                                "Address: " + address;
+                                address;
 
                         // Set the text in TextView
                         orderDetails.setText(orderText);
