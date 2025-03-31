@@ -6,6 +6,13 @@
     android:padding="20dp">
 
     <EditText
+        android:id="@+id/etReceiverName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Receiver's Name"
+        android:inputType="textPersonName"/>
+
+    <EditText
         android:id="@+id/etHouseNo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

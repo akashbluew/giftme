@@ -20,6 +20,8 @@
             android:orientation="vertical"
             android:gravity="center">
 
+
+
             <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -199,6 +201,13 @@
 
 
             </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_margin="5dp"
+                android:background="#D7DCFA"/>
 
             <!-- Keychain Image -->
 
@@ -388,38 +397,79 @@
             </LinearLayout>
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Select Order Type"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/black"
-                android:layout_gravity="center_horizontal"/>
-
-
-            <RadioGroup
-                android:id="@+id/radioGroupOptions"
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="10dp"
+                android:layout_margin="5dp"
+                android:background="#D7DCFA"/>
 
-                <!-- Option 1: Wallet Only -->
-                <RadioButton
-                    android:id="@+id/radio_wallet"
-                    android:layout_width="wrap_content"
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                app:cardElevation="5dp"
+                app:cardCornerRadius="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Only Wallet (Price 299 Rs)"/>
-
-                <!-- Option 2: Wallet + Keychain -->
-                <RadioButton
-                    android:id="@+id/radio_wallet_keychain"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Wallet and Keychain (Price 399 Rs)"/>
+                    android:orientation="vertical">
 
 
-            </RadioGroup>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Select Order Type"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center_horizontal"/>
+
+
+                    <RadioGroup
+                        android:id="@+id/radioGroupOptions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <!-- Option 1: Wallet Only -->
+                        <RadioButton
+                            android:id="@+id/radio_wallet"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Only Wallet (Price 299 Rs)"/>
+
+                        <!-- Option 2: Wallet + Keychain -->
+                        <RadioButton
+                            android:id="@+id/radio_wallet_keychain"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Wallet and Keychain (Price 399 Rs)"/>
+
+
+                    </RadioGroup>
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            app:cardElevation="5dp"
+            app:cardCornerRadius="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -458,10 +508,22 @@
 
             </RadioGroup>
 
+
+        </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/addAddress"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                app:cardElevation="5dp"
+                app:cardCornerRadius="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"

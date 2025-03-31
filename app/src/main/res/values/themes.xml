@@ -3,7 +3,11 @@
     <style name="Base.Theme.GiftMe" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+
     </style>
+
+
 
     <style name="Theme.GiftMe" parent="Base.Theme.GiftMe" />
 </resources>

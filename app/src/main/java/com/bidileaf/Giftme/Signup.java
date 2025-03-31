@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -61,6 +62,7 @@ public class Signup extends AppCompatActivity {
         signUpButton = findViewById(R.id.btnSignUp);
         googleSignInButton = findViewById(R.id.btnGoogleSignIn);
         mAuth = FirebaseAuth.getInstance();
+        TextView loginText = findViewById(R.id.loginText);
 
 
         // Initialize Google Sign-In without Web Client ID
@@ -93,6 +95,14 @@ public class Signup extends AppCompatActivity {
             }
         });
 
+        loginText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Signup.this, MainActivity.class);
+                startActivity(intent);
+                finish(); // Optional: Closes Signup activity so user can't go back to it with back button
+            }
+        });
 
 
 

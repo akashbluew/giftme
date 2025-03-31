@@ -268,6 +268,7 @@ public class HomeActivity extends AppCompatActivity {
                 View view = inflater.inflate(R.layout.dialog_add_address, null);
 
                 // Get EditTexts from dialog layout
+                EditText etReceiverName = view.findViewById(R.id.etReceiverName);
                 EditText etHouseNo = view.findViewById(R.id.etHouseNo);
                 EditText etArea = view.findViewById(R.id.etArea);
                 EditText etPincode = view.findViewById(R.id.etPincode);
@@ -281,6 +282,7 @@ public class HomeActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // Get input values
+                        String receiverName = etReceiverName.getText().toString().trim();
                         String houseNo = etHouseNo.getText().toString().trim();
                         String area = etArea.getText().toString().trim();
                         String pincode = etPincode.getText().toString().trim();
@@ -288,7 +290,7 @@ public class HomeActivity extends AppCompatActivity {
                         String contact = etContact.getText().toString().trim();
 
                         // Create the full address
-                        String fullAddress = houseNo + ", " + area + ", " + pincode + ", " + state + ", " + contact;
+                        String fullAddress =  houseNo + ", " + area + ", " + pincode + ", " + state + ", " + contact  + "\n" + "Name: " + receiverName ;
 
                         // Set the address to TextView and update visibility
                         address.setText("Address : " + fullAddress);

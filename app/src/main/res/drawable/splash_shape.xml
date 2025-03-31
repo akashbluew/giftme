@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="1080dp"
+    android:height="1920dp"
+    android:viewportWidth="1080"
+    android:viewportHeight="1920">
+
+    <!-- Background color -->
+    <path
+        android:fillColor="@color/backgroundColor"
+        android:pathData="M0,0h1080v1920h-1080z" />
+
+    <!-- Wave Shape at the Bottom -->
+    <path
+        android:fillColor="@color/waveColor"
+        android:pathData="M0,1600c200,-100,400,100,600,50s400,-150,600,0v320h-1200z" />
+</vector>

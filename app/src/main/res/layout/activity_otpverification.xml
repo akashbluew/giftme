@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="24dp"
-    android:background="@android:color/white"
+    android:background="@drawable/splash_shape"
     tools:context=".Otpverification">
 
     <LinearLayout
