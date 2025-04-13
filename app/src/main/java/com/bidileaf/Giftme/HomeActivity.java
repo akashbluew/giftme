@@ -57,7 +57,7 @@ public class HomeActivity extends AppCompatActivity {
 
     CardView add_adress;
 
-    private String selectedWalletCharm = "Charm 1 - king charmcharmc harm";
+    private String selectedWalletCharm = "Charm 1 - king charm";
     private String selectedKeychainCharm = "Charm 4 - bike charm";
 
 
