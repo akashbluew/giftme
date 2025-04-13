@@ -10,9 +10,9 @@ android {
     defaultConfig {
         applicationId "com.bidileaf.Giftme"
         minSdk 24
-        targetSdk 35
-        versionCode 4
-        versionName "1.03"
+        targetSdk 357
+        versionCode 5
+        versionName "1.04"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

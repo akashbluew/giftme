@@ -57,8 +57,8 @@ public class HomeActivity extends AppCompatActivity {
 
     CardView add_adress;
 
-    private String selectedWalletCharm = "";
-    private String selectedKeychainCharm = "";
+    private String selectedWalletCharm = "Charm 1 - king charmcharmc harm";
+    private String selectedKeychainCharm = "Charm 4 - bike charm";
 
 
 
@@ -290,9 +290,9 @@ public class HomeActivity extends AppCompatActivity {
                         String contact = etContact.getText().toString().trim();
 
                         // Create the full address
-                        String fullAddress =  houseNo + ", " + area + ", " + pincode + ", " + state + ", " + contact  + "\n" + "Name: " + receiverName ;
+                        String fullAddress =  houseNo + ", " + area + ", " + pincode + ", " + state + ", " + contact + "\n" + "Name: " + receiverName ;
 
-                        // Set the address to TextView and update visibility
+                        // Set the adc7dcress to TextView and update visibility
                         address.setText("Address : " + fullAddress);
                         address.setVisibility(View.VISIBLE);
                         add_adress.setVisibility(View.GONE);
@@ -361,6 +361,7 @@ public class HomeActivity extends AppCompatActivity {
         saveOrderDetails(name, keychainName, selectedOption, selectedPaymentMethod, userAddress);
 
         sendOrderToWhatsApp(message);
+
     }
 
 
